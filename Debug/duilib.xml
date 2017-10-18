@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="300,550" mininfo="300,600" caption="0,0,0,32" sizebox="8,8,8,8"> <!-- 窗口的初始尺寸(宽800，高600)、窗口的最小尺寸(宽600，高400)、标题栏拖拽区域(高32)、可拖拽边框大小(这里添加sizebox后就可以拖拽边框调整大小了) -->
+	<Font id = "0" name="字体索引0" size="40" bold="false"  /> 
+	<Font id = "1" name="字体索引0" size="20" bold="false"  /> 
+    
+    <VerticalLayout bkcolor="#FF99CCFF"> <!-- 整个窗口的背景色 -->
+        <!-- 标题栏区 -->
+        <HorizontalLayout height="32" bkcolor="#FFE6E6DC" bkcolor2="#FFAAAAA0"> <!-- 标题栏背景色 bkcolor、bkcolor2、bkcolor3分别是渐变色的三个值-->         
+           
+			<VerticalLayout>
+                <Label float="true" text="电梯运行模拟器" pos="4,3,0,0" width="125" height="28" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+            </VerticalLayout>
+            <VerticalLayout width="77"> <!-- 右边三个控件所占的宽度-->
+                <Button name="minbtn"   tooltip="最小化" float="true" pos="22,5,44,24"  width="23" height="24" normalimage=" file='SysBtn\MinNormal.bmp' " hotimage=" file='SysBtn\MinFocus.bmp' " pushedimage=" file='SysBtn\MinFocus.bmp' "/>
+                
+                <Button name="closebtn" tooltip="关闭"   float="true" pos="44,5,74,24" width="28" height="24" normalimage=" file='SysBtn\CloseNormal.bmp' " hotimage=" file='SysBtn\CloseFocus.bmp' " pushedimage=" file='SysBtn\CloseFocus.bmp' "/>
+            </VerticalLayout>      
+        </HorizontalLayout>
+        
+        <!-- 客户区 -->
+        <VerticalLayout>
+            <VerticalLayout  height="80" width="300">
+				<Label text="大楼层数：" float="true" height="15" width="200" pos="10,15,0,0"></Label>
+				<Edit name="floor_num" selected="true" float="true"  height="20" width="100" pos="80,15,0,0" />
+				<Button name="go" float="true" text="开始模拟" enabled="true" pos="220,30,0,0" width="50" height="25" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" normalimage="SysBtn\button_nor.bmp"  hotimage="Sysbtn/button_down.bmp" align="center" />
+				
+			</VerticalLayout>
+            <HorizontalLayout>
+                <List name="floor" bkcolor="#FFFFFFCC"  float="true"  pos="5,0,0,0" inset="0,0,0,0" height="400" width="160" itemshowhtml="true" vscrollbar="true" hscrollbar="true"  itemalign="center" itembkcolor="#FFE2DDDF" itemaltbk="true"menu="true" itemhotbkcolor="#FFFFCC99">
+
+				    <ListHeaderItem text="楼层" width="70" height="23" minwidth="16"  sepwidth="1" align="left"/>
+					<ListHeaderItem text="按钮" width="90" height="23" minwidth="16"  sepwidth="1" align="left" />
+
+
+			    </List>
+				
+					<List name="screen" bkcolor="#FF99CCFF"  float="true"  pos="190,0,0,0" inset="0,0,0,0" height="250" width="100" itemshowhtml="true" vscrollbar="true" hscrollbar="true"  itemalign="center" itembkcolor="#FFE2DDDF" itemaltbk="true"menu="true">
+						<ListContainerElement bkcolor="#FFCCCCFF" name="now" height="60" inset="0,0,0,0">
+							<HorizontalLayout>
+								<Label text="当前楼层:" />
+								<Label  name="now_floor" font="0" text="0"/>
+							</HorizontalLayout>
+						</ListContainerElement>
+						<ListContainerElement name="up" bkcolor="#FFFF0033" height="60" inset="40,0,0,0">
+							<Label font="0" text="↑"/>
+						</ListContainerElement>
+						<ListContainerElement name="down" bkcolor="#FF99CCFF"  height="60" inset="40,0,0,0">
+							<Label font="0" text="↓"/>
+						</ListContainerElement>
+					</List>
+					<VerticalLayout name="buttons" height="200" inset="5,5,5,5" bkcolor="#FFCCCCFF" width="110" float="true" pos="185,200,0,0"  bordersize="2" borderround="5" bordercolor="#FF000000"  >	
+					</VerticalLayout>      
+			</HorizontalLayout>  
+
+        </VerticalLayout>
+    </VerticalLayout>
+</Window>
